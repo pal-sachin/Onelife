@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Sign In/Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(#fff,#ffd6d6);
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .home-button{
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 40px;
+            align-items: center;
+            text-decoration: none;
+
+        }
+        button:hover, .home-button:hover {
+            background: #218838;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .toggle a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .toggle a:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="sign-in-form">
+        <h2>Sign In</h2>
+        <input type="email" id="sign-in-email" placeholder="Email" required>
+        <input type="password" id="sign-in-password" placeholder="Password" required>
+        <button onclick="signIn()" >Sign In</button>
+        <div class="toggle">Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></div>
+        <a href="index.html" class="home-button">Stay Logout</a>
+    </div>
+
+    <div id="sign-up-form" class="hidden">
+        <h2>Sign Up</h2>
+        <input type="text" id="sign-up-name" placeholder="Name" required>
+        <input type="email" id="sign-up-email" placeholder="Email" required>
+        <input type="password" id="sign-up-password" placeholder="Password" required>
+        <button onclick="signUp()">Sign Up</button>
+        <div class="toggle" >Already have an account? <a href="#" onclick="toggleForms()">Sign In</a></div>
+        <a href="index.html" class="home-button">Stay Logout</a>
+    </div>
+</div>
+
+<script>
+    function toggleForms() {
+        const signInForm = document.getElementById('sign-in-form');
+        const signUpForm = document.getElementById('sign-up-form');
+        signInForm.classList.toggle('hidden');
+        signUpForm.classList.toggle('hidden');
+    }
+
+    function signIn() {
+        const email = document.getElementById('sign-in-email').value;
+        const password = document.getElementById('sign-in-password').value;
+        // Add your sign-in logic here
+        alert(`Sign In: ${email}`);
+        window.location.href = 'index.html'; // Redirect to homepage
+    }
+
+    function signUp() {
+        const name = document.getElementById('sign-up-name').value;
+        const email = document.getElementById('sign-up-email').value;
+        const password = document.getElementById('sign-up-password').value;
+        // Add your sign-up logic here
+        alert(`Sign Up: ${name}, ${email}`);
+        window.location.href = 'index.html'; // Redirect to homepage
+    }
+</script>
+
+</body>
+</html>
